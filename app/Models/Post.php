@@ -1,0 +1,28 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Post extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        "made",
+        "carname",
+        "makeyear",
+        "price",
+        "carmodel",
+        "appearance",
+        "user_id",
+        "image",
+    ];
+
+    public function writer(){ 
+        
+        return $this->belongsTo(User::class, "user_id");    
+    }
+
+}
